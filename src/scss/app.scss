@@ -1,0 +1,81 @@
+@import './variables.scss';
+
+app-home {
+  width: 100%;
+  height: 100%;
+}
+
+.status-widgets-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 700px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+app-status-widget {
+  background-color: $SecondaryColor;
+  border-radius: 20px;
+  width: inherit;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 10px 0;
+  box-sizing: border-box;
+  margin: 5px 0;
+  border: 0.5px solid $SecondaryColor;
+  gap: 5px;
+}
+
+.status-bar {
+  background-color: $StatusGood;
+  height: 7px;
+  width: min(50px, 7%);
+  border-radius: 20px;
+}
+
+.status-bar[data-status='1'] {
+  background-color: $StatusGood;
+}
+
+.status-bar[data-status='0'] {
+  background-color: $StatusBad;
+}
+
+.status-bar[data-status='-1'] {
+  background-color: $StatusUnknown;
+}
+
+h3 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.status-row,
+app-status-bar {
+  flex: 1;
+  display: flex;
+  margin: 0 20px;
+}
+
+app-status-bar {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+@media only screen and (max-width: 300px) {
+  .latency-avg{
+    visibility: hidden;
+  }
+}

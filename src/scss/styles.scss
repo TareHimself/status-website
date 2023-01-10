@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './variables.scss';
+
+body {
+  height: 100vh;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 !important;
+  background-color: $PrimaryColor;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  display: block;
+  color: $PrimaryTextColor;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  display: block;
+  color: $PrimaryTextColor;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  display: block;
+  color: $PrimaryTextColor;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 10px;
+  display: block;
+  color: $PrimaryTextColor;
+}
+
+li {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 10px;
+  color: $PrimaryTextColor;
+}
+
+app-root {
+  flex: 1;
+  display: flex;
+}
