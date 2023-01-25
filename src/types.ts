@@ -14,3 +14,13 @@ export interface IApiResponse<T extends any = any> {
   success: boolean;
   data: T;
 }
+
+const enum EApiCurrentStatus {
+  ONLINE = "Online",
+  ERROR = "Error",
+  OFFLINE = "Offline"
+}
+
+export {
+  EApiCurrentStatus
+}

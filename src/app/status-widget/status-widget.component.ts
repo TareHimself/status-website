@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IApiStatusApplication } from 'src/types';
+import { EApiCurrentStatus, IApiStatusApplication, IApiStatusCheck } from 'src/types';
 
 @Component({
   selector: 'app-status-widget',
@@ -15,18 +15,26 @@ import { IApiStatusApplication } from 'src/types';
   template: `
     <div class="status-row">
       <h3>{{ WidgetData.name }}</h3>
-      <span class="latency-avg" ><p>{{ this.latency_averaged }}ms</p></span>
+      <span class="latency-avg" ><p>{{ this.api_status }}</p></span>
     </div>
-    <app-status-bar [status_bars]="WidgetData.status"></app-status-bar>
+    <app-status-bar [status_bars]="this.status"></app-status-bar>
   `,
   styleUrls: ['../../scss/app.scss'],
 })
 export class StatusWidgetComponent implements OnInit {
-  latency_averaged: number = 0
+  api_status: EApiCurrentStatus = EApiCurrentStatus.ONLINE
+  status: IApiStatusCheck[] = []
   ngOnInit(): void {
-    this.latency_averaged = this.WidgetData.status.reduce((total, current) => {
-      return total + Math.max(current.latency, 0)
-    }, 0) / this.WidgetData.status.length
+    this.status = [...this.WidgetData.status].reverse()
+    if (this.WidgetData.status[0].latency == -1) {
+      this.api_status = EApiCurrentStatus.OFFLINE
+    }
+    else if (this.WidgetData.status[0].state == 0) {
+      this.api_status = EApiCurrentStatus.ERROR;
+    }
+    else {
+      this.api_status = EApiCurrentStatus.ONLINE;
+    }
   }
 
   @Input() WidgetData: IApiStatusApplication = {
