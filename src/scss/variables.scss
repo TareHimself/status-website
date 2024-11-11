@@ -2,5 +2,5 @@ $PrimaryTextColor: white;
 $PrimaryColor: #222222;
 $SecondaryColor: #161616;
 $StatusGood: rgb(0, 255, 0);
-$StatusBad: red;
-$StatusUnknown: $StatusGood;
+$StatusError: rgb(255, 183, 0);
+$StatusOffline: red;

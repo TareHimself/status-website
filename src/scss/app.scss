@@ -43,11 +43,11 @@ app-status-widget {
 }
 
 .status-bar[data-status='0'] {
-  background-color: $StatusBad;
+  background-color: $StatusError;
 }
 
 .status-bar[data-status='-1'] {
-  background-color: $StatusUnknown;
+  background-color: $StatusOffline;
 }
 
 h3 {
@@ -72,10 +72,29 @@ app-status-bar {
   align-items: center;
 }
 
+#fill-data {
+  border: transparent;
+  background-color: $PrimaryColor;
+}
 
+#fill-data::backdrop {
+  background-color: rgba(0, 0, 0, 0.585);
+}
+
+.add-service-container {
+  display: flex;
+  background-color: $PrimaryColor;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.add-service-container input {
+  width: 100%;
+}
 
 @media only screen and (max-width: 350px) {
-  .latency-avg{
-    display:none;
+  .latency-avg {
+    display: none;
   }
 }

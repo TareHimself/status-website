@@ -1,8 +1,9 @@
 export interface IApiStatusCheck {
-  state: 0 | 1;
+  state: -1 | 0 | 1;
   latency: number;
   time: number;
 }
+
 export interface IApiStatusApplication {
   id: string;
   name: string;
@@ -10,17 +11,20 @@ export interface IApiStatusApplication {
   status: IApiStatusCheck[];
 }
 
-export interface IApiResponse<T extends any = any> {
-  success: boolean;
-  data: T;
-}
+export type IApiResponse<T = any> =
+  | {
+      error: false;
+      data: T;
+    }
+  | {
+      error: true;
+      data: string;
+    };
 
 const enum EApiCurrentStatus {
-  ONLINE = "Online",
-  ERROR = "Error",
-  OFFLINE = "Offline"
+  ONLINE = 'Online',
+  ERROR = 'Error',
+  OFFLINE = 'Offline',
 }
 
-export {
-  EApiCurrentStatus
-}
+export { EApiCurrentStatus };
